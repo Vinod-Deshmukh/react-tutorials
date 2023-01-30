@@ -1,14 +1,24 @@
-import logo from "./logo.svg";
+import { Component, useState } from "react";
 import "./App.css";
-import User from "./User";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello World</h1>
-      <User />
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: 1,
+    };
+  }
+  apple() {
+    this.setState({ data: this.state.data + 1 });
+  }
+  render() {
+    return (
+      <div className="App">
+        <h1>{this.state.data}</h1>
+        <button onClick={() => this.apple()}>Update Data</button>
+      </div>
+    );
+  }
 }
 
 export default App;
