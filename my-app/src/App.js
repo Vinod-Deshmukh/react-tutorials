@@ -1,14 +1,16 @@
-import logo from "./logo.svg";
 import "./App.css";
-import User from "./User";
-import Users from "./Users";
 
 function App() {
+  let data = "Hello World";
+  function click() {
+    data = "Hello India";
+    alert(data);
+    // alert("Hey, you clicked me!");
+  }
   return (
     <div className="App">
-      <h1>Hello World</h1>
-      <User />
-      <Users />
+      <h1>{data}</h1>
+      <button onClick={() => click()}>Click Me</button>
     </div>
   );
 }
