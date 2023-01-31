@@ -1,24 +1,25 @@
-import { Component } from "react";
+import { useState } from "react";
 import "./App.css";
+import Student from "./Student";
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      data: 1,
-    };
-  }
-  apple() {
-    this.setState({ data: this.state.data + 1 });
-  }
-  render() {
-    return (
-      <div className="App">
-        <h1>{this.state.data}</h1>
-        <button onClick={() => this.apple()}>Update Data</button>
-      </div>
-    );
-  }
+function App() {
+  const [name, setName] = useState("Hello World");
+  return (
+    <div className="App">
+      <Student
+        name={name}
+        Email="vinod@gmail.com"
+        other={{ id: 10, city: "Kalyan" }}
+      />
+      <button
+        onClick={() => {
+          setName("Hello India");
+        }}
+      >
+        Update{" "}
+      </button>
+    </div>
+  );
 }
 
 export default App;
