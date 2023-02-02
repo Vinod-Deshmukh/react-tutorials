@@ -1,23 +1,18 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
-import Student from "./Student";
 
 function App() {
-  const [name, setName] = useState("Hello World");
+  const [data, setData] = useState();
+  const [print, setPrint] = useState(false);
+  function getData(val) {
+    console.warn(val.target.value);
+    setPrint(false);
+  }
   return (
     <div className="App">
-      <Student
-        name={name}
-        Email="vinod@gmail.com"
-        other={{ id: 10, city: "Kalyan" }}
-      />
-      <button
-        onClick={() => {
-          setName("Hello India");
-        }}
-      >
-        Update{" "}
-      </button>
+      {print ? <h1>{data}</h1> : null}
+      <input type="text" onChange={getData}></input>
+      <button onClick={() => setPrint(true)}>Print</button>
     </div>
   );
 }
