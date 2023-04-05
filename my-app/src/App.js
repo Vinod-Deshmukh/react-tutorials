@@ -2,17 +2,13 @@ import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [data, setData] = useState();
-  const [print, setPrint] = useState(false);
-  function getData(val) {
-    console.warn(val.target.value);
-    setPrint(false);
-  }
+  const [data, setData] = useState(false);
   return (
     <div className="App">
-      {print ? <h1>{data}</h1> : null}
-      <input type="text" onChange={getData}></input>
-      <button onClick={() => setPrint(true)}>Print</button>
+      {data ? <h1>Hello</h1> : null}
+      {/* <button onClick={() => setData(true)}>Show</button>
+      <button onClick={() => setData(false)}>Hide</button> */}
+      <button onClick={() => setData(!data)}>Toggle</button>
     </div>
   );
 }
