@@ -1,14 +1,44 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [data, setData] = useState(false);
+  const [name, setName] = useState("");
+  const [movie, setMovie] = useState("");
+  const [terms, setTerms] = useState(false);
+  function handleData(e) {
+    console.log(name, movie, terms);
+    e.preventDefault();
+  }
   return (
     <div className="App">
-      {data ? <h1>Hello</h1> : null}
-      {/* <button onClick={() => setData(true)}>Show</button>
-      <button onClick={() => setData(false)}>Hide</button> */}
-      <button onClick={() => setData(!data)}>Toggle</button>
+      <h1>Form Handaling</h1>
+      <form onSubmit={handleData}>
+        <input
+          type="text"
+          placeholder="Name"
+          // value={name}
+          onChange={(e) => setName(e.target.value)}
+        ></input>
+        <br />
+        <br />
+        <select onChange={(e) => setMovie(e.target.value)}>
+          <option>Movie</option>
+          <option>Shawshank Redemaption</option>
+          <option>The Godfather</option>
+          <option>Iron Man</option>
+          <option>The Avengers: Infinity War</option>
+        </select>
+        <br />
+        <br />
+        <input
+          type="checkbox"
+          onChange={(e) => setTerms(e.target.checked)}
+        ></input>
+        <span>Terms and Condition</span>
+        <br />
+        <br />
+        <button>Submit</button>
+      </form>
     </div>
   );
 }
